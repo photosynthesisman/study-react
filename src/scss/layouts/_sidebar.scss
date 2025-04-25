@@ -1,0 +1,36 @@
+.sidebar {
+  position: relative;
+  width: 0;
+  height: 100vh;
+  background-color: #eee;
+  transition: width 0.3s ease-in-out;
+  flex-shrink: 0;
+  ul {
+    overflow: hidden;
+  }
+  &.collapsed {
+    width: 10rem;
+  }
+}
+.toggleBtn {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  font-size: 0;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  &:hover {
+    background-color: #555;
+  }
+  &:focus {
+    outline: none;
+  }
+}
