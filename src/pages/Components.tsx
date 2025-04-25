@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Input from "../components/common/input";
-import CheckBox from "../components/common/CheckBox";
+import Select from "../components/common/Select";
 
 const Components: React.FC = () => {
   const [value1, setValue1] = useState("");
@@ -14,10 +14,15 @@ const Components: React.FC = () => {
       <Input type="error" placeholder="입력하세요" errorText="Helper text" remainTime="4:58" />
       <Input type="default" address placeholder="입력하세요" value={value2} onChange={(e) => setValue2(e.target.value)} onClear={() => setValue2("")} />
       <Input type="readonly" address placeholder="주소" />
-      <CheckBox type="checked" label="체크박스" id="check1" />
-      <CheckBox type="default" label="체크박스" id="check2" />
-      <CheckBox type="disabled" label="체크박스" id="check3" />
-      <CheckBox type="disabled checked" label="체크박스" id="check4" />
+      <Select type="checkbox" label="체크박스" id="check1" className="checkbox size-lg" />
+      <Select type="checkbox" label="체크박스" id="check2" className="checkbox size-lg" />
+      <Select type="checkbox" label="체크박스" id="check3" className="checkbox size-lg" />
+      <Select type="checkbox" label="체크박스" id="check4" className="checkbox size-lg" />
+
+      <Select type="radio" label="라디오박스" name="rdo1" id="rdo1" className="radio" />
+      <Select type="radio" label="라디오박스" name="rdo1" id="rdo2" className="radio" />
+      <Select type="radio" label="라디오박스" name="rdo1" id="rdo3" className="radio" />
+      <Select type="radio" label="라디오박스" name="rdo1" id="rdo4" className="radio" />
     </div>
   );
 };
