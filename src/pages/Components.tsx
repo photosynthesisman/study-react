@@ -5,24 +5,53 @@ import Select from "../components/common/Select";
 const Components: React.FC = () => {
   const [value1, setValue1] = useState("");
   const [value2, setValue2] = useState("");
+  const [checked, setChecked] = useState(true);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked(e.target.checked);
+  };
+  const [selected1, setSelected1] = useState("rdo2");
+  const [selected2, setSelected2] = useState("rdo3");
   return (
     <div>
-      <Input type="default" placeholder="입력하세요" value={value1} onChange={(e) => setValue1(e.target.value)} onClear={() => setValue1("")} />
-      <Input type="disabled" value="disabled 형태" />
-      <Input type="readonly" value="readonly 형태" />
-      <Input type="password" placeholder="비밀번호 입력" remainTime="4:58" showPasswordToggle />
-      <Input type="error" placeholder="입력하세요" errorText="Helper text" remainTime="4:58" />
-      <Input type="default" address placeholder="입력하세요" value={value2} onChange={(e) => setValue2(e.target.value)} onClear={() => setValue2("")} />
-      <Input type="readonly" address placeholder="주소" />
-      <Select type="checkbox" label="체크박스" id="check1" className="checkbox size-lg" />
-      <Select type="checkbox" label="체크박스" id="check2" className="checkbox size-lg" />
-      <Select type="checkbox" label="체크박스" id="check3" className="checkbox size-lg" />
-      <Select type="checkbox" label="체크박스" id="check4" className="checkbox size-lg" />
-
-      <Select type="radio" label="라디오박스" name="rdo1" id="rdo1" className="radio" />
-      <Select type="radio" label="라디오박스" name="rdo1" id="rdo2" className="radio" />
-      <Select type="radio" label="라디오박스" name="rdo1" id="rdo3" className="radio" />
-      <Select type="radio" label="라디오박스" name="rdo1" id="rdo4" className="radio" />
+      <div>
+        <Input type="default" placeholder="입력하세요" value={value1} onChange={(e) => setValue1(e.target.value)} onClear={() => setValue1("")} />
+        <Input type="disabled" value="disabled 형태" />
+        <Input type="readonly" value="readonly 형태" />
+        <Input type="password" placeholder="비밀번호 입력" remainTime="4:58" showPasswordToggle />
+        <Input type="error" placeholder="입력하세요" errorText="Helper text" remainTime="4:58" />
+        <Input type="default" address placeholder="입력하세요" value={value2} onChange={(e) => setValue2(e.target.value)} onClear={() => setValue2("")} />
+        <Input type="readonly" address placeholder="주소" />
+      </div>
+      <div>
+        <Select checked={checked} type="checkbox" label="체크박스" id="check1" className="checkbox size-lg" onChange={handleChange} />
+        <Select disabled type="checkbox" label="체크박스" id="check2" className="checkbox size-lg" />
+        <Select checked disabled type="checkbox" label="체크박스" id="check3" className="checkbox size-lg" />
+        <Select type="checkbox" label="체크박스" id="check4" className="checkbox size-lg" />
+      </div>
+      <div>
+        <Select
+          disabled
+          checked={selected1 === "rdo1"}
+          type="radio"
+          label="라디오박스"
+          name="rdo1"
+          id="rdo1"
+          className="radio"
+          onChange={() => setSelected1("rdo1")}
+        />
+        <Select
+          disabled
+          checked={selected1 === "rdo2"}
+          type="radio"
+          label="라디오박스"
+          name="rdo1"
+          id="rdo2"
+          className="radio"
+          onChange={() => setSelected1("rdo2")}
+        />
+        <Select checked={selected2 === "rdo3"} type="radio" label="라디오박스" name="rdo2" id="rdo3" className="radio" onChange={() => setSelected2("rdo3")} />
+        <Select checked={selected2 === "rdo4"} type="radio" label="라디오박스" name="rdo2" id="rdo4" className="radio" onChange={() => setSelected2("rdo4")} />
+      </div>
     </div>
   );
 };
