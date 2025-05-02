@@ -1,6 +1,6 @@
 import React from "react";
 
-export interface SelectProps {
+export interface ComboProps {
   label?: string;
   id?: string;
   type?: string;
@@ -13,7 +13,7 @@ export interface SelectProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Select: React.FC<SelectProps> = ({ label, id, type, className, name, checked, disabled, onChange, value, toggle }) => {
+const Combo: React.FC<ComboProps> = ({ label, id, type, className, name, checked, disabled, onChange, value, toggle }) => {
   return (
     <label htmlFor={id} className={className}>
       <input type={type} id={id} name={name} checked={checked} value={value} disabled={disabled} onChange={onChange} />
@@ -22,4 +22,4 @@ const Select: React.FC<SelectProps> = ({ label, id, type, className, name, check
     </label>
   );
 };
-export default Select;
+export default Combo;

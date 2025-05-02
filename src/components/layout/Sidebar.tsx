@@ -11,7 +11,7 @@ const Sidebar: React.FC = () => {
 
   return (
     <aside className={`sidebar ${isCollapsed ? "collapsed" : ""}`}>
-      <Button variant="primary" size="large" onClick={handleToggle} className="toggleBtn">
+      <Button onClick={handleToggle} className="toggleBtn">
         사이드 접기
       </Button>
       <ul>
