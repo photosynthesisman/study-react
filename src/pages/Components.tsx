@@ -5,9 +5,13 @@ import Select from "../components/common/Select";
 const Components: React.FC = () => {
   const [value1, setValue1] = useState("");
   const [value2, setValue2] = useState("");
-  const [checked, setChecked] = useState(true);
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(e.target.checked);
+  const [checked1, setChecked1] = useState(true);
+  const handleChange1 = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked1(e.target.checked);
+  };
+  const [checked2, setChecked2] = useState(true);
+  const handleChange2 = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked2(e.target.checked);
   };
   const [selected1, setSelected1] = useState("rdo2");
   const [selected2, setSelected2] = useState("rdo3");
@@ -22,13 +26,13 @@ const Components: React.FC = () => {
         <Input type="default" address placeholder="입력하세요" value={value2} onChange={(e) => setValue2(e.target.value)} onClear={() => setValue2("")} />
         <Input type="readonly" address placeholder="주소" />
       </div>
-      <div>
-        <Select checked={checked} type="checkbox" label="체크박스" id="check1" className="checkbox size-lg" onChange={handleChange} />
+      <div className="mt-20">
+        <Select checked={checked1} type="checkbox" label="체크박스" id="check1" className="checkbox size-lg" onChange={handleChange1} />
         <Select disabled type="checkbox" label="체크박스" id="check2" className="checkbox size-lg" />
         <Select checked disabled type="checkbox" label="체크박스" id="check3" className="checkbox size-lg" />
         <Select type="checkbox" label="체크박스" id="check4" className="checkbox size-lg" />
       </div>
-      <div>
+      <div className="mt-20">
         <Select
           disabled
           checked={selected1 === "rdo1"}
@@ -51,6 +55,19 @@ const Components: React.FC = () => {
         />
         <Select checked={selected2 === "rdo3"} type="radio" label="라디오박스" name="rdo2" id="rdo3" className="radio" onChange={() => setSelected2("rdo3")} />
         <Select checked={selected2 === "rdo4"} type="radio" label="라디오박스" name="rdo2" id="rdo4" className="radio" onChange={() => setSelected2("rdo4")} />
+      </div>
+      <div className="mt-20">
+        <Select
+          checked={checked2}
+          type="checkbox"
+          label="체크박스"
+          id="check5"
+          className="checkbox toggle-type-1"
+          onChange={handleChange2}
+          toggle="status-info"
+        />
+        <Select disabled type="checkbox" label="체크박스" id="check6" className="checkbox toggle-type-1" toggle="status-info" />
+        <Select checked disabled type="checkbox" label="체크박스" id="check7" className="checkbox toggle-type-1" toggle="status-info" />
       </div>
     </div>
   );
