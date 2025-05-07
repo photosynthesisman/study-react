@@ -626,13 +626,22 @@ input[type="number"] {
   // 별모양 타입
   &.favoriteType {
     margin: 0;
-
+    span {
+      position: absolute;
+      overflow: hidden;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      clip: rect(0, 0, 0, 0);
+      display: block;
+      font-size: 0.3rem;
+      color: transparent;
+    }
     input + .lbl {
       top: 0;
       padding-left: 2.4rem;
       line-height: 2.4rem;
       min-height: 2.4rem;
-
       &:before {
         border: none;
         width: 2.4rem;

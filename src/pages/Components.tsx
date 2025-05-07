@@ -14,8 +14,20 @@ const Components: React.FC = () => {
   const handleChange2 = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked2(e.target.checked);
   };
+
   const [Comboed1, setComboed1] = useState("rdo2");
   const [Comboed2, setComboed2] = useState("rdo3");
+
+  const FAVORITE_COUNT = 5;
+  const [favoriteChecked, setFavoriteChecked] = useState<boolean[]>(
+    Array(FAVORITE_COUNT)
+      .fill(false)
+      .map((_, i) => i < 3)
+  );
+  const handleFavoriteClick = (idx: number) => {
+    setFavoriteChecked(favoriteChecked.map((_, i) => i <= idx));
+  };
+
   return (
     <div>
       <div>
@@ -73,6 +85,22 @@ const Components: React.FC = () => {
           />
           <Combo disabled type="checkbox" label="체크박스" id="check6" className="checkbox toggle-type-1" toggle="status-info" />
           <Combo checked disabled type="checkbox" label="체크박스" id="check7" className="checkbox toggle-type-1" toggle="status-info" />
+        </div>
+        <div className="mt-10">
+          {Array(FAVORITE_COUNT)
+            .fill(0)
+            .map((_, idx) => (
+              <Combo
+                key={idx}
+                type="checkbox"
+                label="체크박스"
+                id={`check${idx}`}
+                name="favorite1"
+                className="checkbox favoriteType"
+                checked={favoriteChecked[idx]}
+                onChange={() => handleFavoriteClick(idx)}
+              />
+            ))}
         </div>
       </div>
       <div className="mt-40">
